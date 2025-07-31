@@ -12,7 +12,7 @@ function App() {
     
         <p>Hello world</p>
 
-        <p>sobin dd</p>
+        <p>sathish ravikumar</p>
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
