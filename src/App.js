@@ -12,7 +12,7 @@ function App() {
     
         <p>Hello world</p>
 
-        <p>Fuck you</p>
+        <p>F**k you</p>
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
