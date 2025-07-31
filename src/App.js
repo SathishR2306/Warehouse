@@ -10,6 +10,7 @@ function App() {
     <Router>
       <Routes>
         <p>Hello world</p>
+
         <p>Fuck you</p>
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
