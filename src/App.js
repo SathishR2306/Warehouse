@@ -9,7 +9,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <p>SOBIN </p>
+    
+        <p>Hello world</p>
+
+        <p>Fuck you</p>
         <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
