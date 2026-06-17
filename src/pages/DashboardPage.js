@@ -1,13 +1,16 @@
-// src/pages/DashboardPage.js
+// src/pages/DashboardPage.js — Role-based dashboard router
 import React from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import AdminDashboard from './dashboards/AdminDashboard';
+import ManagerDashboard from './dashboards/ManagerDashboard';
+import StaffDashboard from './dashboards/StaffDashboard';
 
 const DashboardPage = () => {
-  return (
-    <div className="container">
-      <h2>Welcome to Dashboard!</h2>
-      <p>You are successfully logged in.</p>
-    </div>
-  );
+  const { role } = useAuth();
+
+  if (role === 'admin') return <AdminDashboard />;
+  if (role === 'manager') return <ManagerDashboard />;
+  return <StaffDashboard />;
 };
 
 export default DashboardPage;

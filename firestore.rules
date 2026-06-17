@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+    
+    function isWarehouseUser(warehouseId) {
+      return isAuthenticated() && getUserData().warehouseId == warehouseId;
+    }
+    
+    function hasRole(role) {
+      return isAuthenticated() && getUserData().role == role;
+    }
+
+    // Warehouses collection
+    match /warehouses/{warehouseId} {
+      allow create: if true; // Public register creates a warehouse
+      allow read, update, delete: if isAuthenticated() && isWarehouseUser(warehouseId);
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow create: if true; // Public registration or manager/admin creating users
+      allow read: if isAuthenticated() && (request.auth.uid == userId || getUserData().warehouseId == resource.data.warehouseId);
+      allow update, delete: if isAuthenticated() && (
+        request.auth.uid == userId || 
+        (getUserData().warehouseId == resource.data.warehouseId && (hasRole('admin') || hasRole('manager')))
+      );
+    }
+
+    // Scoped warehouse sub-collections/documents
+    match /{document=**} {
+      // General match for any sub-document containing a warehouseId field
+      allow read: if isAuthenticated() && (resource == null || resource.data.warehouseId == getUserData().warehouseId);
+      allow create: if isAuthenticated() && request.resource.data.warehouseId == getUserData().warehouseId;
+      allow update: if isAuthenticated() && resource.data.warehouseId == getUserData().warehouseId && request.resource.data.warehouseId == getUserData().warehouseId;
+      allow delete: if isAuthenticated() && resource.data.warehouseId == getUserData().warehouseId;
+    }
+  }
+}
