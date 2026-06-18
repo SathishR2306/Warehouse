@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import AppLayout from './components/layout/AppLayout';
-import LoadingScreen from './components/common/LoadingScreen'; // used by ProtectedRoute internally
+
 
 // Auth Pages
 import LoginPage from './pages/LoginPage';

@@ -1,12 +1,11 @@
 // src/pages/dashboards/StaffDashboard.js
 import React, { useMemo } from 'react';
 import {
-  Package, ShoppingCart, AlertTriangle, Boxes, Clock, Bell, RefreshCw
+  Package, ShoppingCart, AlertTriangle, Bell
 } from 'lucide-react';
 import useWarehouseCollection from '../../hooks/useWarehouseCollection';
 import { orderBy, limit, where } from '../../services/firestore.service';
 import { timeAgo } from '../../utils/helpers';
-import { StatusBadge } from '../../components/common/Badge';
 import { LOW_STOCK_THRESHOLD } from '../../constants';
 
 const KpiCard = ({ title, value, icon: Icon, color, subtitle }) => (

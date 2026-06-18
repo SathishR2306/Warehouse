@@ -11,7 +11,7 @@ import { subscribeToCollection } from '../services/firestore.service';
 const useCollection = (collectionName, constraints = [], enabled = true) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); // eslint-disable-line no-unused-vars
 
   useEffect(() => {
     if (!enabled) {

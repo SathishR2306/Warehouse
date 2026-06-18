@@ -1,5 +1,5 @@
 // src/services/warehouse.service.js
-import { createDocument, getCollection, updateDocument, deleteDocument, where, orderBy } from './firestore.service';
+import { createDocument, getCollection, updateDocument, where, orderBy } from './firestore.service';
 
 const WAREHOUSE_COL = 'warehouses';
 const SHELF_COL = 'shelves';

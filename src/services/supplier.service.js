@@ -1,5 +1,5 @@
 // src/services/supplier.service.js
-import { createDocument, getCollection, updateDocument, deleteDocument, where, orderBy } from './firestore.service';
+import { createDocument, getCollection, updateDocument, where, orderBy } from './firestore.service';
 
 const COLLECTION = 'suppliers';
 

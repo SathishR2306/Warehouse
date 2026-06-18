@@ -8,7 +8,6 @@ import {
   limit,
   serverTimestamp,
   writeBatch,
-  collection,
   doc,
   db,
 } from './firestore.service';

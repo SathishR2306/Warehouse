@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react';
 import {
   Package, ShoppingCart, TrendingUp, AlertTriangle, Boxes, Users,
-  DollarSign, BarChart3, Clock, Archive
+  DollarSign, Clock, Archive
 } from 'lucide-react';
 import {
   AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell,

@@ -1,8 +1,8 @@
 // src/pages/dashboards/ManagerDashboard.js
 import React, { useMemo } from 'react';
 import {
-  Package, ShoppingCart, TrendingUp, AlertTriangle, Boxes, Users,
-  Plus, ArrowUpRight, ArrowDownRight, Clock, ShieldAlert
+  ShoppingCart, AlertTriangle, Boxes, Users,
+  Clock
 } from 'lucide-react';
 import {
   BarChart, Bar, ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Cell

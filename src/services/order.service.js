@@ -2,14 +2,13 @@
 import {
   createDocument,
   getCollection,
-  updateDocument,
   getDocument,
   where,
   orderBy,
   serverTimestamp,
   db,
 } from './firestore.service';
-import { doc, getDoc, writeBatch, increment, collection } from 'firebase/firestore';
+import { doc, writeBatch, increment, collection } from 'firebase/firestore';
 import { ORDER_STATUS } from '../constants';
 import { generateOrderNumber } from '../utils/helpers';
 import { logAction } from './audit.service';
